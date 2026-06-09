@@ -266,6 +266,43 @@
     .sector-card p { font-size: 13px; color: var(--muted); font-family: 'Arial', sans-serif; margin: 0; }
     .sector-card .stat { font-size: 20px; font-weight: bold; color: var(--accent); margin: 8px 0 4px; }
 
+    /* ── RESOURCES LINKS ── */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .resource-link {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .resource-link:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 12px rgba(46, 134, 222, 0.15);
+    }
+    .resource-link a {
+      display: block;
+      font-weight: bold;
+      color: var(--navy);
+      font-size: 14px;
+    }
+    .resource-link a:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .resource-link p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+      margin-bottom: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
     /* ── FOOTER ── */
     footer {
       background: var(--navy);
@@ -299,7 +336,7 @@
       <a href="https://github.com/CoHumAInLabs/Policy-as-Code-Architecture-for-Real-Time-GRC-in-Multi-Agent-Systems-AMCIS-2026" class="btn btn-outline">
         ⭐ GitHub Repository
       </a>
-      <a href="https://cohumain.ai" class="btn btn-outline">
+      <a href="https://www.cohumain.ai/" class="btn btn-outline">
         🌐 COHUMAIN Labs
       </a>
     </div>
@@ -318,9 +355,32 @@
     <!-- ══ ABSTRACT ══ -->
     <section>
       <h2>Abstract</h2>
-      <p>Enterprises deploying autonomous multi-agent AI systems face a fundamental governance gap: traditional IT Governance, Risk, and Compliance (GRC) frameworks operate at human speed while agentic AI systems operate at machine speed, rendering conventional oversight architecturally incompatible with emerging threats.</p>
-      <p>This paper introduces <strong>meta-governance</strong> as a novel IS security construct — the use of AI governance agents as <em>Policing and Guardian Agents</em> to autonomously monitor, evaluate, and intervene in the behavior of operational AI agent fleets. We present <strong>MOM-GS-MAS</strong>, a production-ready meta-governance platform deploying 16 specialized governance agents across four SAGS pillars, grounded in Design Science Research (DSR).</p>
-      <p>Our findings extend IT GRC theory to agentic AI contexts, introduce Policy-as-Code as an operationalization of algorithmic accountability, and propose the <strong>Three-Way Governance Dilemma</strong> as a theoretical framing for why meta-governance is architecturally necessary.</p>
+      <p>Enterprises deploying autonomous multi-agent AI systems face a fundamental governance gap: traditional IT Governance, Risk, and Compliance (GRC) frameworks operate at human speed while agents operate at machine speed — creating a governance velocity mismatch that undermines policy compliance, safety, and alignment at scale.</p>
+      <p>This paper introduces <strong>meta-governance</strong> as a novel IS security construct — the use of AI governance agents as <em>Policing and Guardian Agents</em> to autonomously monitor, enforce, and audit the behavior of production multi-agent fleets. We present the <strong>MOM-GS-MAS architecture</strong> (Meta-Governance by Governance-Specialized Multi-Agent Systems), a framework of 16 specialized governance agents organized across four pillars: <strong>Safety</strong>, <strong>Alignment</strong>, <strong>Governance</strong>, and <strong>Security</strong> (SAGS). MOM-GS-MAS demonstrates median policy intervention latency of <strong>43ms</strong> (98.7% within 100ms SLA) and <strong>99.1% compliance</strong> at 1,000-agent fleet scale — a 58× improvement in compliance vs. rule-based baselines.</p>
+      <p>Our findings extend IT GRC theory to agentic AI contexts, introduce <strong>Policy-as-Code</strong> as an operationalization of algorithmic accountability, and propose the <strong>Three-Way Governance Dilemma</strong> (speed vs. scale vs. semantic depth) as a core analytical framework for multi-agent governance design. We validate MOM-GS-MAS across three sectors: financial services (99.3% EU AI Act Article 9 compliance), healthcare (98.6% legitimate query continuity), and enterprise knowledge work (5/5 IP policy violations detected vs. 0/0 for rule-based systems).</p>
+    </section>
+
+    <!-- ══ KEY RESOURCES ══ -->
+    <section>
+      <h2>Key Resources</h2>
+      <div class="resources-grid">
+        <div class="resource-link">
+          <a href="https://www.cohumain.ai/">SafeAlignAI — Enterprise agentic AI governance platform</a>
+          <p>Production-grade governance system for autonomous AI agents</p>
+        </div>
+        <div class="resource-link">
+          <a href="https://www.cohumain.ai/">COHUMAIN Labs — Collective Human + Machine Intelligence research</a>
+          <p>Research initiative on AI governance and alignment</p>
+        </div>
+        <div class="resource-link">
+          <a href="https://www.cohumain.ai/">RAISE 2.0 Framework — 49-control, 5-tier AI risk classification</a>
+          <p>Comprehensive AI risk assessment and control framework</p>
+        </div>
+        <div class="resource-link">
+          <a href="https://www.cohumain.ai/">MOM-GS-MAS — Production meta-governance deployment</a>
+          <p>Operational instance of the meta-governance architecture</p>
+        </div>
+      </div>
     </section>
 
     <!-- ══ KEY RESULTS ══ -->
@@ -382,7 +442,7 @@
     <!-- ══ THREE-WAY DILEMMA ══ -->
     <section>
       <h2>The Three-Way Governance Dilemma</h2>
-      <p>Traditional governance frameworks cannot simultaneously achieve <strong>speed</strong>, <strong>scale</strong>, and <strong>semantic depth</strong>. Meta-governance resolves this by deploying AI-native mechanisms that operate at machine speed while preserving the semantic richness of regulatory reasoning.</p>
+      <p>Traditional governance frameworks cannot simultaneously achieve <strong>speed</strong>, <strong>scale</strong>, and <strong>semantic depth</strong>. Meta-governance resolves this by deploying AI-native agents as governance infrastructure.</p>
       <table>
         <thead>
           <tr><th>Approach</th><th>Speed</th><th>Scale</th><th>Semantic Depth</th><th>HITL</th></tr>
@@ -391,7 +451,7 @@
           <tr><td>Human Review</td><td>Low (hours–days)</td><td>Low</td><td>High</td><td>Always</td></tr>
           <tr><td>Rule-Based Automation</td><td>High (&lt;1s)</td><td>Medium</td><td>Low</td><td>Escalation only</td></tr>
           <tr><td>AI-Assisted Human</td><td>Medium</td><td>Medium</td><td>Medium</td><td>Decision authority</td></tr>
-          <tr class="highlight"><td>Meta-Governance (MOM-GS-MAS)</td><td class="good">High (&lt;100ms)</td><td class="good">High (1,000+ agents)</td><td class="good">High (LLM-semantic)</td><td>Escalation only</td></tr>
+          <tr class="highlight"><td>Meta-Governance (MOM-GS-MAS)</td><td class="good">High (&lt;100ms)</td><td class="good">High (1,000+ agents)</td><td class="good">High (LLM-semantic)</td><td class="good">Escalation + audit trail</td></tr>
         </tbody>
       </table>
     </section>
@@ -497,7 +557,7 @@
     <section>
       <h2>Citation</h2>
       <div class="citation-box">
-        <button class="copy-btn" onclick="navigator.clipboard.writeText(document.querySelector('.citation-box pre').textContent).then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)})">Copy</button>
+        <button class="copy-btn" onclick="navigator.clipboard.writeText(document.querySelector('.citation-box pre').textContent).then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Citation',2000)})">Copy Citation</button>
         <pre>@inproceedings{joshi2026metagovernance,
   title     = {Meta-Governance of Autonomous AI Agents: A Policy-as-Code
                Architecture for Real-Time GRC in Multi-Agent Systems},
@@ -516,7 +576,7 @@
 
   <!-- ══ FOOTER ══ -->
   <footer>
-    <p><strong>COHUMAIN Labs</strong> &nbsp;·&nbsp; <a href="https://cohumain.ai">cohumain.ai</a> &nbsp;·&nbsp; <a href="https://safealignai.io">safealignai.io</a></p>
+    <p><strong>COHUMAIN Labs</strong> &nbsp;·&nbsp; <a href="https://www.cohumain.ai/">cohumain.ai</a> &nbsp;·&nbsp; <a href="https://www.cohumain.ai/">safealignai.io</a></p>
     <p style="margin-top:8px;font-size:12px;">Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> &nbsp;·&nbsp; AMCIS 2026, Reno, Nevada</p>
     <p style="margin-top:6px;font-size:12px;font-style:italic;">Governing AI systems that operate beyond the speed of human oversight.</p>
   </footer>
