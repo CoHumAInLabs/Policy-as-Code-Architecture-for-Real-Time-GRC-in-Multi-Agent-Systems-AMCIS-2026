@@ -1,0 +1,54 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: conference-paper
+title: "Meta-Governance of Autonomous AI Agents: A Policy-as-Code Architecture for Real-Time GRC in Multi-Agent Systems"
+authors:
+  - family-names: Joshi
+    given-names: Himanshu
+    email: himanshujoshi@cohumain.ai
+    affiliation: "COHUMAIN Labs / University of Texas at Austin"
+  - family-names: Shukla
+    given-names: Shivani
+    email: shivani@cohumain.ai
+    affiliation: "COHUMAIN Labs / University of San Francisco"
+  - family-names: Kumari
+    given-names: Sunita
+    email: sunita@cohumain.ai
+    affiliation: "COHUMAIN Labs / University of Texas at Austin"
+  - family-names: Joshi
+    given-names: Manas
+    email: manas@cohumain.ai
+    affiliation: "COHUMAIN Labs / University of Toronto"
+conference:
+  name: "Twenty-Ninth Americas Conference on Information Systems (AMCIS 2026)"
+  city: Reno
+  region: Nevada
+  country: US
+  date-start: 2026-08-01
+year: 2026
+publisher:
+  name: "Association for Information Systems (AIS)"
+keywords:
+  - multi-agent systems
+  - AI governance
+  - GRC
+  - Policy-as-Code
+  - trustworthy AI
+  - cybersecurity
+  - EU AI Act
+  - meta-governance
+  - agentic AI
+  - SAGS
+  - MOM-GS-MAS
+  - Design Science Research
+abstract: >
+  Enterprises deploying autonomous multi-agent AI systems face a fundamental
+  governance gap: traditional IT GRC frameworks operate at human speed while
+  agentic AI systems operate at machine speed. This paper introduces
+  meta-governance as a novel IS security construct and presents MOM-GS-MAS,
+  a production-ready meta-governance platform deploying 16 specialized
+  governance agents across four SAGS pillars, achieving sub-100ms policy
+  enforcement and 99.1% compliance at 1,000-agent fleet scale.
+license: CC-BY-4.0
+repository-code: "https://github.com/CoHumAInLabs/Policy-as-Code-Architecture-for-Real-Time-GRC-in-Multi-Agent-Systems-AMCIS-2026"
+url: "https://cohuMainlabs.github.io/Policy-as-Code-Architecture-for-Real-Time-GRC-in-Multi-Agent-Systems-AMCIS-2026/"

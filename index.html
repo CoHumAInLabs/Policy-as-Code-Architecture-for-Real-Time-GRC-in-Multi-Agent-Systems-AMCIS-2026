@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Meta-Governance of Autonomous AI Agents: A Policy-as-Code Architecture for Real-Time GRC in Multi-Agent Systems. AMCIS 2026 Full Paper by COHUMAIN Labs." />
+  <meta property="og:title" content="Meta-Governance of Autonomous AI Agents | AMCIS 2026" />
+  <meta property="og:description" content="MOM-GS-MAS: 16 specialized governance agents achieving sub-100ms policy enforcement and 99.1% compliance at 1,000-agent fleet scale." />
+  <meta property="og:image" content="assets/Meta_Governance_by_COHUMAIN_Labs.jpg" />
+  <title>Meta-Governance of Autonomous AI Agents | AMCIS 2026</title>
+  <style>
+    :root {
+      --navy: #0d1b2a;
+      --blue: #1b4f8a;
+      --accent: #2e86de;
+      --light-blue: #e8f1fb;
+      --gold: #f5a623;
+      --text: #1a1a2e;
+      --muted: #5a6a7a;
+      --white: #ffffff;
+      --border: #d0dce8;
+      --success: #27ae60;
+      --card-bg: #f7fafd;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, #1a6eb5 100%);
+      color: var(--white);
+      padding: 72px 24px 56px;
+      text-align: center;
+    }
+    .hero .badge-row {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+      margin-bottom: 28px;
+    }
+    .badge {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 12px;
+      font-family: 'Arial', sans-serif;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .badge.gold { background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: bold; }
+    .hero h1 {
+      font-size: clamp(22px, 4vw, 38px);
+      font-weight: bold;
+      line-height: 1.25;
+      max-width: 900px;
+      margin: 0 auto 14px;
+    }
+    .hero .subtitle {
+      font-size: clamp(14px, 2vw, 18px);
+      opacity: 0.85;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+    .hero .venue {
+      font-size: 14px;
+      opacity: 0.7;
+      font-family: 'Arial', sans-serif;
+      margin-bottom: 36px;
+    }
+    .hero-ctas {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 28px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .btn-primary { background: var(--gold); color: var(--navy); }
+    .btn-primary:hover { background: #e8951a; text-decoration: none; }
+    .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.6); }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); text-decoration: none; }
+
+    /* ── MAIN CONTENT ── */
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+    h2 {
+      font-size: 26px;
+      color: var(--navy);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--accent);
+      display: inline-block;
+    }
+    h3 { font-size: 18px; color: var(--blue); margin: 24px 0 10px; }
+    p { margin-bottom: 14px; }
+
+    /* ── INFOGRAPHIC ── */
+    .infographic-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      margin: 28px 0;
+    }
+    .infographic-wrap img { width: 100%; display: block; }
+
+    /* ── METRIC CARDS ── */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 28px 0;
+    }
+    .metric-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    .metric-card .number {
+      font-size: 36px;
+      font-weight: bold;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .metric-card .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      font-family: 'Arial', sans-serif;
+    }
+    .metric-card .sublabel {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* ── DILEMMA TABLE ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-family: 'Arial', sans-serif;
+      font-size: 14px;
+    }
+    th {
+      background: var(--navy);
+      color: var(--white);
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: bold;
+    }
+    td { padding: 9px 14px; border-bottom: 1px solid var(--border); }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: var(--card-bg); }
+    tr.highlight td {
+      background: var(--light-blue);
+      font-weight: bold;
+      color: var(--navy);
+    }
+    td.good { color: var(--success); font-weight: bold; }
+
+    /* ── SAGS PILLARS ── */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .pillar-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+    }
+    .pillar-card .icon { font-size: 28px; margin-bottom: 8px; }
+    .pillar-card h4 { color: var(--navy); font-size: 15px; margin-bottom: 8px; }
+    .pillar-card ul { list-style: none; padding: 0; }
+    .pillar-card li {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 3px 0;
+      font-family: 'Arial', sans-serif;
+    }
+    .pillar-card li::before { content: "› "; color: var(--accent); }
+
+    /* ── AUTHORS ── */
+    .authors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .author-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .author-card .name { font-weight: bold; color: var(--navy); font-size: 15px; }
+    .author-card .affil { font-size: 12px; color: var(--muted); margin-top: 4px; font-family: 'Arial', sans-serif; }
+    .author-card .email { font-size: 12px; color: var(--accent); margin-top: 4px; font-family: 'Arial', sans-serif; }
+
+    /* ── CITATION BOX ── */
+    .citation-box {
+      background: #1e2d3d;
+      border-radius: 8px;
+      padding: 20px 24px;
+      position: relative;
+      margin: 20px 0;
+    }
+    .citation-box pre {
+      color: #a8d8a8;
+      font-size: 13px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: 'Courier New', monospace;
+      line-height: 1.6;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 12px; right: 12px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 12px;
+      font-size: 12px;
+      cursor: pointer;
+      font-family: 'Arial', sans-serif;
+    }
+    .copy-btn:hover { background: #1a70c2; }
+
+    /* ── SECTOR CARDS ── */
+    .sectors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .sector-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--accent);
+      border-radius: 8px;
+      padding: 18px;
+    }
+    .sector-card h4 { color: var(--navy); margin-bottom: 8px; font-size: 15px; }
+    .sector-card p { font-size: 13px; color: var(--muted); font-family: 'Arial', sans-serif; margin: 0; }
+    .sector-card .stat { font-size: 20px; font-weight: bold; color: var(--accent); margin: 8px 0 4px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 36px 24px;
+      font-size: 14px;
+      font-family: 'Arial', sans-serif;
+    }
+    footer a { color: var(--gold); }
+    footer strong { color: var(--white); }
+  </style>
+</head>
+<body>
+
+  <!-- ══ HERO ══ -->
+  <div class="hero">
+    <div class="badge-row">
+      <span class="badge gold">AMCIS 2026 · Full Paper</span>
+      <span class="badge">Reno, Nevada</span>
+      <span class="badge">COHUMAIN Labs</span>
+      <span class="badge">SafeAlignAI</span>
+    </div>
+    <h1>Meta-Governance of Autonomous AI Agents:<br/>A Policy-as-Code Architecture for Real-Time GRC<br/>in Multi-Agent Systems</h1>
+    <p class="subtitle">MOM-GS-MAS · 16 Governance Agents · SAGS Framework · Policy-as-Code</p>
+    <p class="venue">Twenty-Ninth Americas Conference on Information Systems (AMCIS 2026) · Reno, Nevada</p>
+    <div class="hero-ctas">
+      <a href="assets/MetaGovernance_AMCIS2026_Paper.pdf" class="btn btn-primary" download>
+        📄 Download Full Paper
+      </a>
+      <a href="https://github.com/CoHumAInLabs/Policy-as-Code-Architecture-for-Real-Time-GRC-in-Multi-Agent-Systems-AMCIS-2026" class="btn btn-outline">
+        ⭐ GitHub Repository
+      </a>
+      <a href="https://cohumain.ai" class="btn btn-outline">
+        🌐 COHUMAIN Labs
+      </a>
+    </div>
+  </div>
+
+  <!-- ══ INFOGRAPHIC ══ -->
+  <div class="container">
+    <section>
+      <h2>Architecture Overview</h2>
+      <div class="infographic-wrap">
+        <img src="assets/Meta_Governance_by_COHUMAIN_Labs.jpg"
+             alt="MOM-GS-MAS Meta-Governance Architecture: Three-Way Governance Dilemma, SAGS Framework, Policy-as-Code, and Performance Benchmarks" />
+      </div>
+    </section>
+
+    <!-- ══ ABSTRACT ══ -->
+    <section>
+      <h2>Abstract</h2>
+      <p>Enterprises deploying autonomous multi-agent AI systems face a fundamental governance gap: traditional IT Governance, Risk, and Compliance (GRC) frameworks operate at human speed while agentic AI systems operate at machine speed, rendering conventional oversight architecturally incompatible with emerging threats.</p>
+      <p>This paper introduces <strong>meta-governance</strong> as a novel IS security construct — the use of AI governance agents as <em>Policing and Guardian Agents</em> to autonomously monitor, evaluate, and intervene in the behavior of operational AI agent fleets. We present <strong>MOM-GS-MAS</strong>, a production-ready meta-governance platform deploying 16 specialized governance agents across four SAGS pillars, grounded in Design Science Research (DSR).</p>
+      <p>Our findings extend IT GRC theory to agentic AI contexts, introduce Policy-as-Code as an operationalization of algorithmic accountability, and propose the <strong>Three-Way Governance Dilemma</strong> as a theoretical framing for why meta-governance is architecturally necessary.</p>
+    </section>
+
+    <!-- ══ KEY RESULTS ══ -->
+    <section>
+      <h2>Key Performance Results</h2>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="number">43ms</div>
+          <div class="label">Median Latency</div>
+          <div class="sublabel">98.7% within 100ms SLA</div>
+        </div>
+        <div class="metric-card">
+          <div class="number">99.1%</div>
+          <div class="label">Policy Compliance</div>
+          <div class="sublabel">at 1,000-agent fleet scale</div>
+        </div>
+        <div class="metric-card">
+          <div class="number">97.4%</div>
+          <div class="label">Attack Detection</div>
+          <div class="sublabel">peak across 5 adversarial vectors</div>
+        </div>
+        <div class="metric-card">
+          <div class="number">11,400</div>
+          <div class="label">TPS Throughput</div>
+          <div class="sublabel">near-linear scaling</div>
+        </div>
+        <div class="metric-card">
+          <div class="number">91.3%</div>
+          <div class="label">Inter-Agent Defense</div>
+          <div class="sublabel">vs. 12% rule-based</div>
+        </div>
+        <div class="metric-card">
+          <div class="number">16</div>
+          <div class="label">Governance Agents</div>
+          <div class="sublabel">across 4 SAGS pillars</div>
+        </div>
+      </div>
+
+      <h3>Comparison vs. Baselines</h3>
+      <table>
+        <thead>
+          <tr><th>Dimension</th><th>MOM-GS-MAS</th><th>Rule-Based Baseline</th><th>AI-Assisted Human</th></tr>
+        </thead>
+        <tbody>
+          <tr class="highlight">
+            <td>Median Intervention Latency</td>
+            <td class="good">43ms</td><td>120ms</td><td>4 min (HITL)</td>
+          </tr>
+          <tr><td>Interventions within 100ms</td><td class="good">98.7%</td><td>61%</td><td>N/A</td></tr>
+          <tr><td>HITL Autonomous Accuracy</td><td class="good">94.2%</td><td>0% (by design)</td><td>87%</td></tr>
+          <tr><td>Attack Detection (range)</td><td class="good">88.6%–97.4%</td><td>42%–68%</td><td>71%–82%</td></tr>
+          <tr><td>Compliance at 1,000 agents</td><td class="good">99.1%</td><td>17%</td><td>N/A</td></tr>
+          <tr><td>Inter-Agent Defense</td><td class="good">91.3%</td><td>12%</td><td>34%</td></tr>
+          <tr><td>Throughput (TPS @ 1,000 agents)</td><td class="good">11,400</td><td>8,200</td><td>~900</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ══ THREE-WAY DILEMMA ══ -->
+    <section>
+      <h2>The Three-Way Governance Dilemma</h2>
+      <p>Traditional governance frameworks cannot simultaneously achieve <strong>speed</strong>, <strong>scale</strong>, and <strong>semantic depth</strong>. Meta-governance resolves this by deploying AI-native mechanisms that operate at machine speed while preserving the semantic richness of regulatory reasoning.</p>
+      <table>
+        <thead>
+          <tr><th>Approach</th><th>Speed</th><th>Scale</th><th>Semantic Depth</th><th>HITL</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Human Review</td><td>Low (hours–days)</td><td>Low</td><td>High</td><td>Always</td></tr>
+          <tr><td>Rule-Based Automation</td><td>High (&lt;1s)</td><td>Medium</td><td>Low</td><td>Escalation only</td></tr>
+          <tr><td>AI-Assisted Human</td><td>Medium</td><td>Medium</td><td>Medium</td><td>Decision authority</td></tr>
+          <tr class="highlight"><td>Meta-Governance (MOM-GS-MAS)</td><td class="good">High (&lt;100ms)</td><td class="good">High (1,000+ agents)</td><td class="good">High (LLM-semantic)</td><td>Escalation only</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ══ SAGS ARCHITECTURE ══ -->
+    <section>
+      <h2>The 16 SAGS Governance Agents</h2>
+      <p>MOM-GS-MAS deploys 16 specialized governance agents organized across four pillars:</p>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="icon">🛡️</div>
+          <h4>Safety Pillar</h4>
+          <ul>
+            <li>Harm Detection Agent</li>
+            <li>Boundary Enforcement Agent</li>
+            <li>Output Validation Agent</li>
+            <li>Safety Escalation Agent</li>
+          </ul>
+        </div>
+        <div class="pillar-card">
+          <div class="icon">🎯</div>
+          <h4>Alignment Pillar</h4>
+          <ul>
+            <li>Value Alignment Monitor</li>
+            <li>Instruction Compliance Agent</li>
+            <li>Behavioral Drift Detector</li>
+            <li>Alignment Reporting Agent</li>
+          </ul>
+        </div>
+        <div class="pillar-card">
+          <div class="icon">📋</div>
+          <h4>Governance Pillar</h4>
+          <ul>
+            <li>Policy Arbitration Agent</li>
+            <li>Audit Logging Agent</li>
+            <li>Regulatory Compliance Agent</li>
+            <li>Escalation Prioritization Agent</li>
+          </ul>
+        </div>
+        <div class="pillar-card">
+          <div class="icon">🔐</div>
+          <h4>Security Pillar</h4>
+          <ul>
+            <li>Threat Detection Agent</li>
+            <li>Inter-Agent Defense Agent</li>
+            <li>Anomaly Detection Agent</li>
+            <li>Incident Response Agent</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTOR IMPACT ══ -->
+    <section>
+      <h2>Sector-Specific Impact</h2>
+      <div class="sectors-grid">
+        <div class="sector-card">
+          <h4>💰 Financial Services</h4>
+          <div class="stat">99.3%</div>
+          <p>EU AI Act Article 9 compliance across 200 trading agents. Detected 14 emergent collusion instances within 67ms average.</p>
+        </div>
+        <div class="sector-card">
+          <h4>🏥 Healthcare</h4>
+          <div class="stat">98.6%</div>
+          <p>Legitimate query continuity across 50 clinical decision agents. Blocked 7 GDPR violations within 45ms.</p>
+        </div>
+        <div class="sector-card">
+          <h4>💼 Enterprise Knowledge Work</h4>
+          <div class="stat">0 vs 5</div>
+          <p>Rule-based systems detected 0 violations. MOM-GS-MAS identified 5 IP and confidentiality policy drift cases across 150 agents.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ AUTHORS ══ -->
+    <section>
+      <h2>Authors</h2>
+      <div class="authors-grid">
+        <div class="author-card">
+          <div class="name">Himanshu Joshi</div>
+          <div class="affil">COHUMAIN Labs / University of Texas at Austin</div>
+          <div class="email">himanshujoshi@cohumain.ai</div>
+        </div>
+        <div class="author-card">
+          <div class="name">Shivani Shukla</div>
+          <div class="affil">COHUMAIN Labs / University of San Francisco</div>
+          <div class="email">shivani@cohumain.ai</div>
+        </div>
+        <div class="author-card">
+          <div class="name">Sunita Kumari</div>
+          <div class="affil">COHUMAIN Labs / University of Texas at Austin</div>
+          <div class="email">sunita@cohumain.ai</div>
+        </div>
+        <div class="author-card">
+          <div class="name">Manas Joshi</div>
+          <div class="affil">COHUMAIN Labs / University of Toronto</div>
+          <div class="email">manas@cohumain.ai</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CITATION ══ -->
+    <section>
+      <h2>Citation</h2>
+      <div class="citation-box">
+        <button class="copy-btn" onclick="navigator.clipboard.writeText(document.querySelector('.citation-box pre').textContent).then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',2000)})">Copy</button>
+        <pre>@inproceedings{joshi2026metagovernance,
+  title     = {Meta-Governance of Autonomous AI Agents: A Policy-as-Code
+               Architecture for Real-Time GRC in Multi-Agent Systems},
+  author    = {Joshi, Himanshu and Shukla, Shivani and
+               Kumari, Sunita and Joshi, Manas},
+  booktitle = {Proceedings of the Twenty-Ninth Americas Conference
+               on Information Systems (AMCIS 2026)},
+  year      = {2026},
+  address   = {Reno, Nevada},
+  publisher = {AIS},
+  url       = {https://github.com/CoHumAInLabs/Policy-as-Code-Architecture-for-Real-Time-GRC-in-Multi-Agent-Systems-AMCIS-2026}
+}</pre>
+      </div>
+    </section>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <p><strong>COHUMAIN Labs</strong> &nbsp;·&nbsp; <a href="https://cohumain.ai">cohumain.ai</a> &nbsp;·&nbsp; <a href="https://safealignai.io">safealignai.io</a></p>
+    <p style="margin-top:8px;font-size:12px;">Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> &nbsp;·&nbsp; AMCIS 2026, Reno, Nevada</p>
+    <p style="margin-top:6px;font-size:12px;font-style:italic;">Governing AI systems that operate beyond the speed of human oversight.</p>
+  </footer>
+
+</body>
+</html>
