@@ -4,21 +4,21 @@
 [![AMCIS 2026](https://img.shields.io/badge/AMCIS_2026-Full_Paper-blue?style=for-the-badge)](https://amcis2026.aisnet.org/)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey?style=for-the-badge)](https://creativecommons.org/licenses/by/4.0/)
 [![COHUMAIN Labs](https://img.shields.io/badge/COHUMAIN_Labs-Research-orange?style=for-the-badge)](https://cohumain.ai)
-[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Live_Site-brightgreen?style=for-the-badge)](https://cohuMainlabs.github.io/Policy-as-Code-Architecture-for-Real-Time-GRC-in-Multi-Agent-Systems-AMCIS-2026/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Live_Site-brightgreen?style=for-the-badge)](https://cohuMainlabs.github.io/Policy-as-Code-Architecture-for-Real-Time-GRC-in-Multi-Agent-Sy[...]
 
 > **Published at:** Twenty-Ninth Americas Conference on Information Systems (AMCIS 2026), Reno, Nevada
 
 ---
 
-![Meta-Governance Architecture Overview](assets/Meta_Governance_by_COHUMAIN_Labs.jpg)
+![Meta-Governance Architecture Overview](Meta_Governance_by_COHUMAIN_Labs.jpg)
 
 ---
 
 ## 📄 Abstract
 
-Enterprises deploying autonomous multi-agent AI systems face a fundamental governance gap: traditional IT Governance, Risk, and Compliance (GRC) frameworks operate at human speed while agentic AI systems operate at machine speed, rendering conventional oversight architecturally incompatible with emerging threats.
+Enterprises deploying autonomous multi-agent AI systems face a fundamental governance gap: traditional IT Governance, Risk, and Compliance (GRC) frameworks operate at human speed while agentic AI [...]
 
-This paper introduces **meta-governance** as a novel IS security construct — the use of AI governance agents to autonomously monitor, evaluate, and intervene in the behavior of operational AI agent fleets. We present **MOM-GS-MAS** (Monitoring, Observability, and Management Module for Governance and Security of Multi-Agent Systems), a production-ready meta-governance platform deploying **16 specialized governance agents** across four Safety, Alignment, Governance, and Security (SAGS) pillars.
+This paper introduces **meta-governance** as a novel IS security construct — the use of AI governance agents to autonomously monitor, evaluate, and intervene in the behavior of operational AI ag[...]
 
 **Key results:**
 - ⚡ Sub-100ms policy enforcement (median 43ms)
@@ -56,7 +56,7 @@ Traditional governance frameworks cannot simultaneously achieve all three:
 | **Semantic Depth** | High | Low | Medium | **High (LLM-semantic)** |
 | **HITL Required** | Always | Escalation only | Decision authority | **Escalation only** |
 
-> Meta-governance is the only approach that simultaneously achieves all three, by deploying AI-native mechanisms that operate at machine speed while preserving the semantic richness of regulatory reasoning.
+> Meta-governance is the only approach that simultaneously achieves all three, by deploying AI-native mechanisms that operate at machine speed while preserving the semantic richness of regulatory [...]
 
 ---
 
@@ -148,9 +148,8 @@ policy = {
 ```
 .
 ├── README.md                          # This file
-├── assets/
-│   ├── MetaGovernance_AMCIS2026_Paper.pdf   # Full camera-ready paper
-│   └── Meta_Governance_by_COHUMAIN_Labs.jpg # Architecture infographic
+├── MetaGovernance_AMCIS2026_Paper.pdf # Full camera-ready paper
+├── Meta_Governance_by_COHUMAIN_Labs.jpg # Architecture infographic
 ├── index.html                         # GitHub Pages landing page
 ├── CITATION.cff                       # Citation metadata
 └── LICENSE                            # CC BY 4.0
